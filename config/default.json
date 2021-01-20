@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://hunain:hunain2020@medx.h2qob.mongodb.net/medx?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
+}
