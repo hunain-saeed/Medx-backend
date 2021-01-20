@@ -23,8 +23,12 @@ app.use("/api/appointment", require("./routes/api/appointment"));
 app.use("/api/patient", require("./routes/api/patient"));
 app.use("/api/schedule", require("./routes/api/schedule"));
 
-const PORT = 4000;
+// const PORT = 4000;
 
-app.listen(PORT, () => {
+// app.listen(PORT, () => {
+//   console.log(`Server started on port ${PORT}`);
+// });
+
+app.listen(process.env.PORT, process.env.IP, function () {
   console.log(`Server started on port ${PORT}`);
 });
