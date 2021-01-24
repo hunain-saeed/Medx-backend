@@ -44,15 +44,19 @@ router.get("/:doc_id", async (req, res) => {
     let sum = 0;
     let timing = [];
     const time = doctor.start_time.split(":");
+    //change doctor start time to seconds so that unit is same
     const seconds =
       parseInt(time[0], 10) * 60 * 60 + parseInt(time[1], 10) * 60;
 
+    //slice the time into shedule
+    // so that time per patient can be created
     for (let i = 0; sum < doctor.duration * 60 * 60; i++) {
       timing[i] = mintotime((seconds + sum) / 60);
       sum = sum + ppdts;
     }
     let shedule = [];
 
+    // Find what date is today so that we can draw shedule from today
     let today = new Date();
     let week = [
       "Monday",
@@ -63,7 +67,8 @@ router.get("/:doc_id", async (req, res) => {
       "Saturday",
       "Sunday",
     ];
-    // TODO make schedule for 21 days
+    // Making schedule for 21 days
+    // Making shedule for everyday
     for (let i = 0; i < 21; i++) {
       shedule.push({
         date: new Date(today.getTime() + 60 * 60 * 24 * 1000 * i),
@@ -72,6 +77,8 @@ router.get("/:doc_id", async (req, res) => {
     }
     // console.log(shedule);
 
+    // Check if there is an appointment book on that day and time then pull null
+    // on that time
     let ind;
     appointment.forEach((app) => {
       shedule.forEach((she) => {
@@ -83,6 +90,23 @@ router.get("/:doc_id", async (req, res) => {
           she.time[ind] = null;
         }
       });
+    });
+
+    function isIn(vday) {
+      for (var i = 0; i < 3; i++) {
+        if (vday === doctor.days[i]) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // Delete time for day on which doctor is not avaliable
+    shedule.forEach((s) => {
+      // ak din pechy chal raha hy isi ley -1 kia
+      if (!isIn(week[s.date.getDay()-1])) {
+        s.time = [];
+      }
     });
 
     // console.log(shedule);
