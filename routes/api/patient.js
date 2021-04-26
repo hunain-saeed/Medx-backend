@@ -30,7 +30,7 @@ router.get("/profile", auth, isPatient, async (req, res) => {
   }
 });
 
-//@route POST api/patient/updateprofile
+//@route POST api/patient/update
 //@desc update profile
 //@access  private
 router.post(
