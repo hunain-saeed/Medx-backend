@@ -6,7 +6,7 @@ features:
 -Profile Maintenance
 -Mongo Db
 -Appointment Recordss
-This is a backend server of Medx, , built on Nodejs.
+This is a backend server of Medx, built on Nodejs.
 
 ## Installation and Setup Instructions
 
