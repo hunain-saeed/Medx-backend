@@ -1,6 +1,11 @@
 ## MEDX-Backend
 
-Medx is an online doctor appointment booking web app
+Medx is an online doctor appointment booking web app.
+features:
+-Separate View for Doctor and Patient
+-Profile Maintenance
+-Mongo Db
+-Appointment Recordss
 This is a backend server of Medx, , built on Nodejs.
 
 ## Installation and Setup Instructions
