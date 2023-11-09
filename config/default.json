@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://hunain:hunain2020@medx.h2qob.mongodb.net/medx?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://muhammadwajahat221:S78KZayijznm1qCO@cluster0.canr1v7.mongodb.net/?retryWrites=true&w=majority",
     "jwtSecret": "mysecrettoken"
 }
