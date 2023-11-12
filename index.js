@@ -30,5 +30,5 @@ app.use("/api/schedule", require("./routes/api/schedule"));
 // });
 
 app.listen(process.env.PORT || 4000, process.env.IP, function () {
-  console.log('Server started on port');
+  console.log('Server started on port %d', this.address().port);
 });
